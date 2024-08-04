@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón con Corsé y Latido</title>
+    <style>
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            20% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+            40% {
+                transform: scale(1) rotate(-45deg);
+            }
+            60% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+            80% {
+                transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(19, 18, 19); /* Fondo negro */
+            margin: 0;
+        }
+        .heart-container {
+            position: relative;
+            width: 100%; /* Aumentado para un mayor espacio */
+            height: 100%; /* Aumentado para un mayor espacio */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 95%); /* Degradado blanco más grande y difuminado */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10%; /* Para hacer el fondo circular */
+        }
+        .heart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+            transform: rotate(-45deg);
+            margin: 20px;
+            animation: heartbeat 2.5s infinite; /* Aumentar la duración a 2.5 segundos para un latido más lento */
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+        }
+        .heart:before {
+            top: -100px;
+            left: 0;
+        }
+        .heart:after {
+            left: 100px;
+            top: 0;
+        }
+        .corset {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            width: 160px;
+            height: 120px;
+            background: white;
+            border: 5px solid black;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        .corset:before,
+        .corset:after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 120px;
+            background: black;
+            top: -5px;
+        }
+        .corset:before {
+            left: 30px;
+        }
+        .corset:after {
+            right: 30px;
+        }
+        .lace {
+            position: absolute;
+            width: 160px;
+            height: 10px;
+            background: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .lace:before,
+        .lace:after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+        }
+        .lace:before {
+            left: 0;
+            top: -5px;
+        }
+        .lace:after {
+            right: 0;
+            top: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <div class="heart">
+            <div class="corset"></div>
+            <div class="lace"></div>
+        </div>
+    </div>
+</body>
+</html>
